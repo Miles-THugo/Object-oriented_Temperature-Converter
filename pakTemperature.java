@@ -1,3 +1,4 @@
+package converterPackage;
 
 /** Class made to refer to for arithmetic process of converting 
  * between °Celsius and °Fahrenheit scale metrics. */
