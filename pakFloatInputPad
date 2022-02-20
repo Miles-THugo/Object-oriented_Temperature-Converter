@@ -1,1 +1,83 @@
+/** This class is intended for overall input handling.
+ * It is displayed purely as a proof-of-concept. 
+ */
+class FloatInputPad{
+    private String inputRegister;
+    private double inputLogged = 0;
+    private String[] splitUp;
+    private String tempLabel = "0";
+    //So...if Celsius is already selected, the user shouldn't be about to press it again. Sigh...great.
+    private boolean returnFlag = false;
+    public FloatInputPad(String a){
+    //Splitting done here.
+    //Now call method for storing input as a particular temperature.
+        splitInput(a);
+    }
+    public FloatInputPad(String a, boolean b){
+        splitInput(a, b);
+    }
+    //Made to allow for use locally in another class, so other methods can be used manually rather than once automatically.
+    public FloatInputPad(){
+        
+    }
+    
+    public void splitInput(String a)
+    {
+        if(a.contains(".")){
+            this.splitUp = a.split(".");
+            writeInput(this.splitUp);
+        }else{
+            this.inputRegister = "";
+            for(int i = 0; i<a.length(); i++){
+                this.inputRegister = this.inputRegister + a.charAt(i);
+            }
+            logInput();
+        }
+        //For loop for this method alone (so you can remove writeInput method), just in case for some reason the for each loop doesn't work.
+/*
+        for(int i = 0; i < this.splitUp.length; i++)
+        {
+            if(i == 0){
+                this.inputRegister = this.splitUp[i];
+            }else{
+                this.inputRegister = this.inputRegister + this.splitUp[i];
+            }
+        }*/
+    }
+    public void splitInput(String a, boolean b)
+    {
+        this.returnFlag = true;
+        this.splitUp = a.split(".");
+        writeInput(this.splitUp);
+    }
+
+    private void writeInput(String[] a)
+    {
+        this.inputRegister = "";
+        for(String x: a){
+            this.inputRegister = this.inputRegister + x;
+            //System.out.println(this.inputRegister);
+        }
+        if(this.returnFlag == true){
+            logInput(this.returnFlag);
+            this.returnFlag = false;
+        }else{
+            logInput();
+        }
+    }
+
+    private void logInput()
+    {
+        this.inputLogged = Double.parseDouble(this.inputRegister);
+    }
+    private double logInput(boolean a)
+    {
+        this.inputLogged = Double.parseDouble(this.inputRegister);
+        return this.inputLogged;
+    }
+    public double getTempInput()
+    {
+        return this.inputLogged;
+    }
+}
 
