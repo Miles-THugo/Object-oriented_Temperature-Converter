@@ -1,3 +1,5 @@
+package converterPackage;
+
 /** This class is intended for overall input handling.
  * It is displayed purely as a proof-of-concept. 
  */
