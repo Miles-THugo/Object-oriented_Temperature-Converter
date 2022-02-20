@@ -1,5 +1,6 @@
 # Object-oriented_Temperature-Converter demonstration
 Farenheit and Celsius temperature numpad (Java GUI) program created for university.
+There is both the compiled version and appropriately named package version here (for demonstration).
 
 The class (<interediate converter interface class>) was written as a template for how I wanted the arithmetic data to be processed, but I ended up not using it. It's now preserved for documentative purposes.
 
@@ -60,6 +61,7 @@ Everything else related to the layout of the program window and its
 components are more a matter of Bounds and dimensions rather than 
 Java's dedicated graphical interface features (nothing to do with 
 layout managers or GUI components).
+
 ------------------------------------------------------------------------
   }}
 
